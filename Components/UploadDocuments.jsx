@@ -1,9 +1,11 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, StatusBar } from 'react-native';
 
 export default function UploadDocuments({ navigation }) {
   return (
+    
     <SafeAreaView style={styles.container}>
+      <StatusBar barStyle="light-content" backgroundColor="#004b36" />
       <View style={styles.header}>
         <Text style={styles.title}>Complete Your Profile</Text>
       </View>
@@ -36,21 +38,24 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-between',
-    padding: 20,
+    padding: 0,
     backgroundColor: '#f9f9f9', 
   },
   header: {
-    backgroundColor: '#004b36', 
-    padding: 15,
+    backgroundColor: '#004b36',
+    padding: 20,
     marginBottom: 20,
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    marginTop: -50,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
     color: 'white', 
+    alignSelf: 'center',
+    marginTop: 40,
   },
   subtitle: {
     fontSize: 20,

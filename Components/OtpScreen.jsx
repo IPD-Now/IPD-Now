@@ -37,53 +37,59 @@ const OtpScreen = ({ onAnimationEnd }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: '100%',
-    paddingHorizontal: 20,  
-    justifyContent: 'space-between', 
+    paddingHorizontal: 20,
+    justifyContent: 'center', // Adjusted to center the content vertically
     alignItems: 'center',
-    backgroundColor: '#ffffff', 
-    paddingVertical: 40, // Added padding to adjust content positioning
+    backgroundColor: '#ffffff',
+    paddingVertical: 40,
   },
   image: {
-    width: 400,
-    height: 400,
-    marginTop: -30, // Moves the image slightly up
+    width: 350, // Adjusted width to fit different screen sizes better
+    height: 350, // Adjusted height similarly
+    marginBottom: 20, // Reduced the margin between image and title
   },
+
   title: {
-    fontSize: 40, // Increased size
+    fontSize: 60, // Adjusted size to make the title less overwhelming
     fontWeight: 'bold',
     textAlign: 'center',
-    color: 'black', 
-    marginTop: -40, // Adjusted spacing
-    marginBottom: 40, // Space between title and input field
+    color: 'black',
+    marginBottom: 40, // Adjusted spacing between title and input field
   },
+
   formContainer: {
-    width: '100%',
+    alignContent: 'center',
+    alignSelf: 'center',
+    alignItems: 'center',
+    width: '90%',
     marginBottom: 0, // Increased space between input and button
   },
   label: {
     alignSelf: 'flex-start',
     fontSize: 18,
     color: '#000',
-    marginBottom: 5,
-    marginLeft: 10,
+    marginBottom: 10, // Adjusted the bottom margin
+    marginLeft: 25,
   },
   input: {
-    width: '100%',
+    width: '95%',
     borderWidth: 1,
     borderColor: '#000',
     borderRadius: 10,
     paddingHorizontal: 15,
     paddingVertical: 12,
     fontSize: 16,
-    marginBottom: 0,
+    marginBottom: 40,
   },
   buttonContainer: {
-    width: '100%',
+    alignSelf: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+    width: '90%',
     marginBottom: -20, // Pushes button to the bottom
   },
   button: {
-    width: '100%',          
+    width: '90%',          
     backgroundColor: '#000',
     paddingVertical: 15,
     borderRadius: 30,

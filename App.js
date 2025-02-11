@@ -5,6 +5,7 @@ import SplashScreen from './Components/SplashScreen';
 import WelcomeScreen from './Components/WelcomeScreen';
 import UploadDocuments from './Components/UploadDocuments';
 import OtpScreen from './Components/OtpScreen';
+import numberLogin from './Components/numberLogin';
 
 const Stack = createStackNavigator();
 
@@ -18,7 +19,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Welcome" component={OtpScreen} />
+        <Stack.Screen name="Welcome" component={UploadDocuments} />
         {/* <Stack.Screen name="Welcome" component={UploadDocuments} /> */}
         {/* <Stack.Screen name="Welcome" component={WelcomeScreen} /> */}
       </Stack.Navigator>
