@@ -1,0 +1,201 @@
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  SafeAreaView,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+} from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
+const ProfileForm = ({ onSubmit }) => {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    birthday: '',
+    emergencyContact: '',
+    gender: '',
+  });
+  const [showDatePicker, setShowDatePicker] = useState(false);
+
+  const handleDateChange = (event, selectedDate) => {
+    setShowDatePicker(false);
+    if (selectedDate) {
+      const formattedDate = selectedDate.toISOString().split('T')[0];
+      setFormData({ ...formData, birthday: formattedDate });
+    }
+  };
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.container}
+      >
+        <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
+          <View style={styles.header}>
+            <Text style={styles.headerText}>Complete Your Profile</Text>
+          </View>
+
+          <View style={styles.formContainer}>
+            <View style={styles.inputGroup}>
+              <Text style={styles.label}>Full Name</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Enter Your Name"
+                value={formData.fullName}
+                onChangeText={(text) => setFormData({ ...formData, fullName: text })}
+              />
+            </View>
+
+            <View style={styles.inputGroup}>
+              <Text style={styles.label}>Email</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Enter Your Email"
+                keyboardType="email-address"
+                autoCapitalize="none"
+                value={formData.email}
+                onChangeText={(text) => setFormData({ ...formData, email: text })}
+              />
+            </View>
+
+            <View style={styles.inputGroup}>
+              <Text style={styles.label}>Birthday</Text>
+              <TouchableOpacity 
+                onPress={() => setShowDatePicker(true)}
+                activeOpacity={0.7}
+                style={styles.dateInputContainer}
+              >
+                <Text style={[styles.inputText, !formData.birthday && styles.placeholder]}>
+                  {formData.birthday || "Select Your Birthday"}
+                </Text>
+                <Ionicons name="calendar-outline" size={20} color="#777" style={styles.icon} />
+              </TouchableOpacity>
+              {showDatePicker && (
+                <DateTimePicker
+                  value={formData.birthday ? new Date(formData.birthday) : new Date()}
+                  mode="date"
+                  display="default"
+                  onChange={handleDateChange}
+                />
+              )}
+            </View>
+
+            <View style={styles.inputGroup}>
+              <Text style={styles.label}>Emergency Contact</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Enter Emergency Phone Number"
+                keyboardType="phone-pad"
+                value={formData.emergencyContact}
+                onChangeText={(text) => setFormData({ ...formData, emergencyContact: text })}
+              />
+            </View>
+
+            <View style={styles.inputGroup}>
+              <Text style={styles.label}>Gender</Text>
+              <View style={styles.genderContainer}>
+                <TouchableOpacity
+                  style={[styles.genderButton, formData.gender === 'male' && styles.genderButtonActive]}
+                  onPress={() => setFormData({ ...formData, gender: 'male' })}
+                  activeOpacity={0.7}
+                >
+                  <Text style={[styles.genderButtonText, formData.gender === 'male' && styles.genderButtonTextActive]}>Male</Text>
+                </TouchableOpacity>
+                
+                <TouchableOpacity
+                  style={[styles.genderButton, formData.gender === 'female' && styles.genderButtonActive]}
+                  onPress={() => setFormData({ ...formData, gender: 'female' })}
+                  activeOpacity={0.7}
+                >
+                  <Text style={[styles.genderButtonText, formData.gender === 'female' && styles.genderButtonTextActive]}>Female</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+
+            <TouchableOpacity 
+              style={styles.nextButton} 
+              onPress={() => onSubmit(formData)}
+              activeOpacity={0.7}
+            >
+              <Text style={styles.nextButtonText}>Next</Text>
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  header: {
+    backgroundColor: '#005544',
+    padding: 20,
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
+    marginBottom: 20,
+  },
+  headerText: {
+    color: '#fff',
+    fontSize: 24,
+    fontWeight: '600',
+    textAlign: 'center',
+  },
+  formContainer: {
+    padding: 20,
+  },
+  inputGroup: {
+    marginBottom: 20,
+  },
+  label: {
+    fontSize: 16,
+    marginBottom: 8,
+    color: '#000',
+    fontWeight: '500',
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    padding: 12,
+    fontSize: 16,
+    color: '#333',
+    backgroundColor: '#fff',
+  },
+  dateInputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    padding: 12,
+    backgroundColor: '#fff',
+  },
+  icon: {
+    marginLeft: 'auto',
+  },
+  nextButton: {
+    backgroundColor: '#000',
+    borderRadius: 8,
+    padding: 16,
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  nextButtonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: '600',
+  },
+});
+
+export default ProfileForm;
