@@ -9,7 +9,7 @@ export default function UploadDocuments({ navigation }) {
       <View style={styles.header}>
         <Text style={styles.title}>Complete Your Profile</Text>
       </View>
-      <Text style={styles.subtitle}>Upload Medical Documents (If Any)</Text>
+      <Text style={styles.label}>Phone Number</Text>
 
       <TouchableOpacity style={styles.uploadButton}>
         <Text style={styles.uploadButtonText}>Upload Here</Text>
