@@ -7,6 +7,8 @@ import UploadDocuments from './Components/UploadDocuments';
 import OtpScreen from './Components/OtpScreen';
 import numberLogin from './Components/numberLogin';
 import locationAddress from './Components/LocationAddress';
+import UserInfo from './Components/UserInfo';
+import MedicationDetails from './Components/MedicationDetails';
 
 const Stack = createStackNavigator();
 
@@ -20,7 +22,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Welcome" component={locationAddress} />
+        <Stack.Screen name="Welcome" component={MedicationDetails} />
         {/* <Stack.Screen name="Welcome" component={UploadDocuments} /> */}
         {/* <Stack.Screen name="Welcome" component={WelcomeScreen} /> */}
       </Stack.Navigator>
