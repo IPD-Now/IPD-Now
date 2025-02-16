@@ -1,16 +1,9 @@
 # IPD Now
 
-![IPD Now Logo](https://shudveta.in/applogo.jpeg) *(Replace with actual logo URL)*
+![IPD Now Logo](https://shudveta.in/applogo.jpeg)
 
 ## 🚀 Introduction
 IPD Now is a React Native app designed to simplify the process of instant patient data (IPD) collection and management. Built with **Expo** and **Firebase Firestore**, the app ensures seamless data handling with a user-friendly interface.
-
-## 📱 Features
-- 📋 **Survey System**: Users can access surveys via a unique code.
-- 🔄 **Dynamic Questions**: Questions are loaded from a JSON file, allowing real-time updates.
-- 🔥 **Firebase Firestore Integration**: Secure and scalable backend for storing survey responses.
-- 📞 **Phone Number Authentication**: Simplified login process.
-- 🎨 **Responsive UI**: Optimized layout across different screen sizes.
 
 ## 🛠️ Tech Stack
 - **Frontend**: React Native (Expo)
@@ -34,7 +27,7 @@ IPD-Now/
 ## 🔧 Installation
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/IPD-Now.git
+   git clone https://github.com/IPD-Now/IPD-Now.git
    cd IPD-Now
    ```
 2. Install dependencies:
