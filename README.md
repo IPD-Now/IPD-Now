@@ -71,3 +71,5 @@ This project is licensed under the **MIT License**.
 ---
 ### ⭐ Don't forget to **star** this repository if you find it useful! 🚀
 
+
+IPD Now © 2025 by Shudveta is licensed under CC BY-NC-ND 4.0 
